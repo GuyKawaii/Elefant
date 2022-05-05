@@ -8,6 +8,7 @@ public class UserInterface {
     Order order = new Order();
     double itemQuantity;
     double itemPrice;
+    double taxRate;
     String userInput;
     boolean moreItems = true;
     
@@ -27,9 +28,13 @@ public class UserInterface {
       if (!userInput.isBlank()) moreItems = false;
     } while (moreItems);
     
-    System.out.print("enter taxRate: ");
+    System.out.print("enter tax-rate or state: ");
     userInput = in.nextLine();
-    order.setTaxRate(Double.parseDouble(userInput));
+    try {
+      order.setTaxRate(Double.parseDouble(userInput));
+    } catch (Exception e) {
+      order.setTaxRate(userInput);
+    }
     
     // calculate total:
     System.out.println(order.getTotalAfterDiscountAndTax());

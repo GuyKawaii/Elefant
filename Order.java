@@ -25,6 +25,15 @@ public class Order {
     this.taxRate = percentTaxRate / 100;
   }
   
+  public void setTaxRate(String state) {
+    if (state.equalsIgnoreCase("UT")) taxRate = 0.06_85;
+    else if (state.equalsIgnoreCase("NV")) taxRate = 0.08_00;
+    else if (state.equalsIgnoreCase("TX")) taxRate = 0.06_25;
+    else if (state.equalsIgnoreCase("AL")) taxRate = 0.04_00;
+    else if (state.equalsIgnoreCase("CA")) taxRate = 0.08_25;
+    else taxRate = 0.08_25;
+  }
+  
   public ArrayList<Double> getItemsPrice() {
     return itemsPrice;
   }
