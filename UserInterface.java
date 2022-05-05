@@ -22,10 +22,10 @@ public class UserInterface {
       
       order.addItem(itemPrice, itemQuantity);
       
-      System.out.print("Enter to add more items: ");
+      System.out.print("[Enter] to continue or [M] for more items: ");
       userInput = in.nextLine();
       
-      if (!userInput.isBlank()) moreItems = false;
+      if (userInput.isBlank()) moreItems = false;
     } while (moreItems);
     
     System.out.print("enter tax-rate or state: ");
